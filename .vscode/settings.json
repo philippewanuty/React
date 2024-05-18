@@ -1,0 +1,9 @@
+{
+	"editor.wordWrapColumn": 150,
+	"editor.wordWrap": "off",
+	"prettier.bracketSpacing": true,
+	"prettier.printWidth": 120,
+	"prettier.semi": true,
+	"prettier.endOfLine": "lf",
+	
+}
