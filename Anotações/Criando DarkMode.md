@@ -1,6 +1,12 @@
 # Abilitando Darkmode no projeto
 
-Crie o Arquivo `DarkModeProvider`
+ 1 - Crie o Arquivo `DarkModeProvider`
+
+ 2 - Envolva o `DarkModeProvider` nos componentes que deseja consumir o contexto
+
+ 3 - Chame `useDarkMode` dentro de componentes funcionais para acessar `isDarkMode` e `toggleDarkMode` diretamente.
+
+ 4 - Use os componentes como desejar para ativar o darkmode
 
 Vamos a explicação do funcionamento de cada parte, incluindo os hooks utilizados e suas finalidades.
 
@@ -92,6 +98,13 @@ export const useDarkMode = () => useContext(DarkModeContext);
      ```
      Ele retorna o valor do contexto `DarkModeContext`, que inclui `isDarkMode` e `toggleDarkMode`.
 
+### Diferença entre `useDarkMode` e `DarkModeProvider`
+
+
+- **DarkModeProvider:** É um componente que gerencia e fornece o estado e as funções relacionadas ao tema escuro/claro para os componentes filhos. Ele deve envolver os componentes que precisam acessar o contexto de tema.
+
+- **useDarkMode:** É um hook personalizado que facilita o acesso ao contexto de tema dentro de componentes funcionais. Ele é usado para obter `isDarkMode` e `toggleDarkMode` sem precisar usar `useContext` diretamente.
+
 ### Como Usar
 
 1. **Envolver a aplicação com `DarkModeProvider`**:
@@ -118,7 +131,7 @@ export const useDarkMode = () => useContext(DarkModeContext);
 
    	return (
    		<div>
-   			<button onClick={toggleDarkMode}>{isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</button>
+   			<button title={isDarkMode ? 'Modo Claro' : 'Modo Escuro'} onClick={toggleDarkMode}></button>
    		</div>
    	);
    }
