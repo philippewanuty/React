@@ -1,11 +1,11 @@
 import { MyButton } from './styles';
 
-export function Button({title}) {
+export function ThemeButton({ title, onClick }) {
 	return (
 		<>
-			<MyButton>
-			{title}
+			<MyButton onClick={onClick}>
+				{title}
 			</MyButton>
 		</>
 	);
-};
+}
