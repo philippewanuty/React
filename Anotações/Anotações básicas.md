@@ -152,27 +152,108 @@ Desvantagens:
 
 ### Estilização de componente já criado
 
-Para estilizar um componente externo já criado usamos o método **Styled**
+A criação de uma `className` dentro de um componente permite que esse componente seja estilizado de forma específica quando ele é usado dentro de outros componentes. 
 
-O método styled é uma função que permite criar um novo componente estilizado baseado em um componente existente.
-```Javascript
-import ComponenteExterno from '../components/ComponenteExterno';
+Usar `className` fornece uma maneira de aplicar estilos diretamente no componente filho sem modificar seu código de estilo interno. Isso é especialmente útil quando você está compondo e reutilizando componentes em uma aplicação maior.
+
+### Benefícios de Usar `className`
+
+1. **Modularidade**:
+    - Componentes podem ser reutilizados em diferentes contextos com diferentes estilos, sem precisar duplicar o código de estilo ou criar componentes novos para cada variação.
+
+2. **Manutenção Simplificada**:
+    - Mantém a lógica de estilo centralizada. Se precisar mudar o estilo de um componente específico, você pode fazer isso diretamente no local onde ele é usado, sem precisar editar o componente original.
+
+3. **Especificidade**:
+    - Permite aplicar estilos com alta especificidade quando necessário, sem criar conflitos de CSS global.
+
+### Exemplo com Explicação
+
+Vamos examinar um exemplo concreto para entender melhor.
+
+#### Componente Button
+
+Primeiro, você cria um componente `Button` que recebe `className` como props e aplica essa classe ao elemento `<button>`.
+
+```jsx
+// Components/Button.js
+import React from 'react';
+
+const ThemeButton = ({ className, title }) => {
+    return <button className={className}>{title}</button>;
+};
+
+export default ThemeButton;
 ```
 
-```Javascript
-export const Seucomponente = styled(ComponenteExterno)
+#### Estilos no `styles.js`
 
-color: White;
-text-decoration: none;
-font-weight: bold;
+Em `styles.js`, você define um estilo para a classe `.ThemeButton`.
+
+```javascript
+// styles.js
+import styled from 'styled-components';
+
+export const Container = styled.div`
+   
+    .ThemeButton {
+        background-color: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.colors.light};
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: ${({ theme }) => theme.colors.dark};
+        }
+    }
+`;
 ```
 
-não esquecer de importar o componente
+#### Uso no `App.jsx`
+
+No componente `App`, você aplica a classe `ThemeButton` ao `ThemeButton` usando `className`.
+
+```jsx
+// App.jsx
+
+import ThemeButton from '../../Components/Button';
+import { Container } from './styles';
+
+function App() {
+  
+
+    return (
+        <Container>
+            <div className="App">
+                <h1>Estudando sobre API</h1>
+                <ThemeButton className="ThemeButton" title="Change Theme" />
+            </div>
+        </Container>
+    );
+}
+
+export default App;
+```
+
+### Como Funciona
+
+1. **Passagem de `className`**:
+    - No `App.jsx`, você passa a `className="ThemeButton"` ao componente `ThemeButton`.
+    - Dentro do componente `ThemeButton`, a `className` recebida é aplicada ao `<button>`.
+
+2. **Estilização Específica**:
+    - No `styles.js`, a classe `.ThemeButton` é estilizada especificamente.
+    - Quando o `ThemeButton` é renderizado dentro do `App`, ele recebe esses estilos.
+
+3. **Flexibilidade e Reutilização**:
+    - O mesmo `ThemeButton` pode ser usado em diferentes partes da aplicação com diferentes classes, permitindo estilos diferentes conforme necessário.
+    - Sem `className`, seria necessário alterar o componente `ThemeButton` diretamente ou criar variações específicas para cada uso, o que não é escalável.
 
 
-nesta importação é sem chaves
 
-### Pseudoclasses Styled-Components
+## Pseudoclasses Styled-Components
 
 styled-components no React, o &amp; é usado para referenciar o próprio elemento que está sendo estilizado.
 

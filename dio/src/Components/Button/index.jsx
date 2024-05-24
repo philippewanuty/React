@@ -7,7 +7,9 @@ export function ThemeButton({ title, onClick }) {
 
 	return (
 		<>
-			<MyButton onClick={toggleDarkMode}>
+			<MyButton
+				className='ThemeButton'
+				onClick={toggleDarkMode}>
 				{title}
 			</MyButton>
 		</>

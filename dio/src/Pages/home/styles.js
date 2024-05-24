@@ -35,5 +35,12 @@ export const Container = styled.div`
      list-style: none;
   
   }
+
+	.ThemeButton {
+
+		border-radius: 9px;
+
+
+	}
 `;
 
