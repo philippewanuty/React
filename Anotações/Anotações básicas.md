@@ -240,9 +240,9 @@ export default App;
 ### Como Funciona
 
 1. **Passagem de `className`**:
-    - No `App.jsx`, você passa a `className="ThemeButton"` ao componente `ThemeButton`.
-    - Dentro do componente `ThemeButton`, a `className` recebida é aplicada ao `<button>`.
+    - No `App.jsx`, não precisa colocar o `className="ThemeButton"` se você ja o colocou ao componente `ThemeButton`, a menos que ele seja um props `className="{className}"`, daí no componente onde você chamou o button você pode dar o className que achar melhor e estiliza-lo dentro do style.
 
+   
 2. **Estilização Específica**:
     - No `styles.js`, a classe `.ThemeButton` é estilizada especificamente.
     - Quando o `ThemeButton` é renderizado dentro do `App`, ele recebe esses estilos.

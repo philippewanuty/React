@@ -23,7 +23,11 @@ function App() {
 		<Container>
 			<div className='App'>
 				<h1>Estudando sobre API</h1>
-				<ThemeButton title={'Change Theme'} />
+				<ThemeButton
+					className= 'ThemeButton'
+					title={'Change Theme'}
+				/>
+	
 			</div>
 			<div>
 				<h2>Produtos</h2>
