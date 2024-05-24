@@ -97,27 +97,41 @@ export default createGlobalStyle`
 `;
 ```
 
-No arquivo `theme.js` fazer as exportação das cores globais.
+No arquivo `theme.js` fazer as exportação das cores globais com light e dark mode (ler o arquivo de darkmode).
 
-`User Snippets(Theme Object Colors): TOC`
+`User Snippets(Theme Object Colors): TO`
 
 ```Javascript
-export default {
- COLORS: {
-
-   BACKGROUND: '#141119',
-
-   MINHA_COR_1: '',
-   MINHA_COR_2: '',
-   MINHA_COR_3: '',
- },
+const theme = {
+  light: {
+    COLORS: {
+      BACKGROUND: '#FFFFFF',
+      TEXT: '#333333',
+      PRIMARY: '#007bff',
+      // Adicione outras cores para o modo claro conforme necessário
+    },
+  },
+  dark: {
+    COLORS: {
+      BACKGROUND: '#232129',
+      TEXT: '#FFFFFF',
+      PRIMARY: '#17a2b8',
+      // Adicione outras cores para o modo escuro conforme necessário
+    },
+  },
 };
+
+export default theme;
 ```
 
 Quando for usar a cor nos arquivos de estilização realizar desta forma:
 
 ```Javascript
 ${({ theme }) => theme.COLORS.MINHACOR}
+```
+Quando o darkmode não está configurado
+```Javascript
+${({ theme }) => theme.light.COLORS.MINHACOR}
 ```
 
 `Atalho: CRTL + SHIFT+1`

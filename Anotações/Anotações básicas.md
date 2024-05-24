@@ -155,6 +155,9 @@ Desvantagens:
 Para estilizar um componente externo já criado usamos o método **Styled**
 
 O método styled é uma função que permite criar um novo componente estilizado baseado em um componente existente.
+```Javascript
+import ComponenteExterno from '../components/ComponenteExterno';
+```
 
 ```Javascript
 export const Seucomponente = styled(ComponenteExterno)
@@ -166,9 +169,6 @@ font-weight: bold;
 
 não esquecer de importar o componente
 
-```Javascript
-import ComponenteExterno from '../components/ComponenteExterno';
-```
 
 nesta importação é sem chaves
 

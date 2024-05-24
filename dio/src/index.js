@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import GlobalStyles from './styles/Global';
 import App from './Pages/home/App';
