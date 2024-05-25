@@ -1,9 +1,9 @@
-import { ThemeButton } from '../../Components/Button';
+import { ThemeButton } from '../../Components/Button/ThemeButton';
 import { getAllProducts, getProductById } from '../../api/apiService';
 import { Container } from './styles';
 import { useEffect, useState } from 'react';
 
-function App() {
+function Home() {
 	const [products, setProducts] = useState([]);
 	const [product, setProduct] = useState(null);
 
@@ -14,20 +14,19 @@ function App() {
 			.catch((error) => console.error('Erro ao obter produtos:', error));
 
 		// Obter um produto específico por ID (exemplo ID 1)
-		getProductById(1)
+		getProductById(20)
 			.then((data) => setProduct(data))
 			.catch((error) => console.error('Erro ao obter o produto:', error));
 	}, []);
 
 	return (
 		<Container>
-			<div className='App'>
-				<h1>Estudando sobre API</h1>
+			<div>
+				<h1>Consumindo API</h1>
 				<ThemeButton
-					className= 'ThemeButton'
+					className='ThemeButton'
 					title={'Change Theme'}
 				/>
-	
 			</div>
 			<div>
 				<h2>Produtos</h2>
@@ -42,6 +41,8 @@ function App() {
 					{product ? (
 						<>
 							<p>{product.title}</p>
+							<p> R$: {product.price}</p>
+							<p>{product.category}</p>
 							<p>{product.description}</p>
 						</>
 					) : (
@@ -53,4 +54,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;
