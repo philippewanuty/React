@@ -1,4 +1,4 @@
-import { ThemeButton } from '../../Components/Button/ThemeButton';
+import { ThemeButton } from '../../Components/Button';
 import { getAllProducts, getProductById } from '../../api/apiService';
 import { Container } from './styles';
 import { useEffect, useState } from 'react';

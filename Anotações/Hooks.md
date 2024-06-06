@@ -37,7 +37,7 @@ Um ponto interessante é que o useEffect pode aceitar um array de dependências 
 
 Essas dependências são utilizadas para determinar quando o efeito deve ser reexecutado. Se qualquer uma das dependências no array mudar de valor entre renderizações, o efeito será acionado novamente. Se o array estiver vazio, o efeito será executado apenas uma vez após a montagem do componente.
 
-```Javascript
+```javascript
 useEffect(() => {
   // Código do efeito aqui
 }, []); // array segundo argumento
@@ -45,7 +45,7 @@ useEffect(() => {
 
 **Aqui está um exemplo básico de uso do useEffect:**
 
-```Javascript
+```javascript
 import React, { useState, useEffect } from 'react';
 
 function MeuComponente() {

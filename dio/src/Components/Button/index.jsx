@@ -1,7 +1,7 @@
 import { MyButton } from './styles';
 import { useDarkMode } from '../../assets/styles/DarkModeProvider';
 
-export function ThemeButton({ title, onClick, className }) {
+export function ThemeButton({ title, className }) {
 	const { toggleDarkMode } = useDarkMode();
 
 	return (
